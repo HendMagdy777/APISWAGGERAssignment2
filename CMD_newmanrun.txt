@@ -1,0 +1,1 @@
+newman run UsersSwaggerAPI.postman_collection.json –d TestData.csv  –reporters=cli,htmlextra 

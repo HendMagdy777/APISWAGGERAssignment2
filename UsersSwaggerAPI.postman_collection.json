@@ -1,0 +1,646 @@
+{
+	"info": {
+		"_postman_id": "45f05986-485b-488b-8bd7-e53bfa299eab",
+		"name": "UsersSwaggerAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateUserWithArray",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e116047-328a-446e-9f79-0f32c7cc7512",
+						"exec": [
+							"// TC 1\r",
+							"pm.test(\"Check Status Code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//TC2\r",
+							"pm.test(\"Correct body format\", function() {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.code).to.eql(200);\r",
+							"    pm.expect(jsonData.type).to.eql(\"unknown\");\r",
+							"    pm.expect(jsonData.message).to.eql(\"ok\");\r",
+							"})\r",
+							"\r",
+							"//TC3\r",
+							"pm.test(\"Correct body Datatypes\", function() {\r",
+							"var data = pm.response.json();\r",
+							"pm.expect(data.code).to.be.a(\"number\");\r",
+							"pm.expect(data.type).to.be.a(\"string\");\r",
+							"pm.expect(data.message).to.be.a(\"string\");})\r",
+							"\r",
+							"\r",
+							"//TC4\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"//TC5\r",
+							"pm.test(\"Correct Headers\" , function () {\r",
+							"   pm.response.to.have.header(\"access-control-allow-headers\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-methods\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"   pm.response.to.have.header(\"content-type\");\r",
+							"   pm.response.to.have.header(\"date\");\r",
+							"   pm.response.to.have.header(\"server\");\r",
+							"   pm.response.to.have.header(\"status\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[  {\r\n\"id\": {{id}},    \r\n\"username\": {{username}},   \r\n\"firstName\": {{firstname}},  \r\n\"lastName\": {{lastname}}, \r\n\"email\": {{email}},    \r\n\"password\": {{password}},  \r\n\"phone\": {{phone}},   \r\n\"userStatus\": {{userstatus}}  }]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/createWithArray",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"createWithArray"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUserWithList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4eefd48e-a09c-43b0-be43-ffaa3299a203",
+						"exec": [
+							"// TC 1\r",
+							"pm.test(\"Check Status Code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//TC2\r",
+							"pm.test(\"Correct body format\", function() {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.code).to.eql(200);\r",
+							"    pm.expect(jsonData.type).to.eql(\"unknown\");\r",
+							"    pm.expect(jsonData.message).to.eql(\"ok\");\r",
+							"})\r",
+							"\r",
+							"//TC3\r",
+							"pm.test(\"Correct body Datatypes\", function() {\r",
+							"var data = pm.response.json();\r",
+							"pm.expect(data.code).to.be.a(\"number\");\r",
+							"pm.expect(data.type).to.be.a(\"string\");\r",
+							"pm.expect(data.message).to.be.a(\"string\");})\r",
+							"\r",
+							"\r",
+							"//TC4\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"//TC5\r",
+							"pm.test(\"Correct Headers\" , function () {\r",
+							"   pm.response.to.have.header(\"access-control-allow-headers\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-methods\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"   pm.response.to.have.header(\"content-type\");\r",
+							"   pm.response.to.have.header(\"date\");\r",
+							"   pm.response.to.have.header(\"server\");\r",
+							"   pm.response.to.have.header(\"status\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[  {\r\n\"id\": {{id}},    \r\n\"username\": {{username}},   \r\n\"firstName\": {{firstname}},  \r\n\"lastName\": {{lastname}}, \r\n\"email\": {{email}},    \r\n\"password\": {{password}},  \r\n\"phone\": {{phone}},   \r\n\"userStatus\": {{userstatus}}  }]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/createWithList",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"createWithList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserByUsername",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8f4071f8-622b-4c13-96e0-154396588446",
+						"exec": [
+							"// TC 1\r",
+							"pm.test(\"Check Status Code\", function () {\r",
+							"\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,404,400]);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"//TC3\r",
+							"pm.test(\"Correct body Datatypes\", function() {\r",
+							"var data = pm.response.json();\r",
+							"pm.expect(data.code).to.be.a(\"number\");\r",
+							"pm.expect(data.type).to.be.a(\"string\");\r",
+							"pm.expect(data.message).to.be.a(\"string\");})\r",
+							"\r",
+							"\r",
+							"//TC4\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"//TC5\r",
+							"pm.test(\"Correct Headers\" , function () {\r",
+							"   pm.response.to.have.header(\"access-control-allow-headers\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-methods\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"   pm.response.to.have.header(\"content-type\");\r",
+							"   pm.response.to.have.header(\"date\");\r",
+							"   pm.response.to.have.header(\"server\");\r",
+							"   pm.response.to.have.header(\"status\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/test",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUserData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "72c79c23-0c91-46ef-8718-9b082f8c49a7",
+						"exec": [
+							"// TC 1\r",
+							"pm.test(\"Check Status Code\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,404,400]);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"//TC3\r",
+							"pm.test(\"Correct body Datatypes\", function() {\r",
+							"var data = pm.response.json();\r",
+							"pm.expect(data.code).to.be.a(\"number\");\r",
+							"pm.expect(data.type).to.be.a(\"string\");\r",
+							"pm.expect(data.message).to.be.a(\"string\");})\r",
+							"\r",
+							"\r",
+							"//TC4\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(800);\r",
+							"});\r",
+							"\r",
+							"//TC5\r",
+							"pm.test(\"Correct Headers\" , function () {\r",
+							"   pm.response.to.have.header(\"access-control-allow-headers\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-methods\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"   pm.response.to.have.header(\"content-type\");\r",
+							"   pm.response.to.have.header(\"date\");\r",
+							"   pm.response.to.have.header(\"server\");\r",
+							"   pm.response.to.have.header(\"status\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \"id\": 0,  \"username\": \"string\",  \"firstName\": \"string\",  \"lastName\": \"string\",  \"email\": \"string\",  \"password\": \"string\",  \"phone\": \"string\",  \"userStatus\": 0}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/username",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"username"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "97263f29-29e4-4a9c-833d-a161d23b6856",
+						"exec": [
+							"// TC 1\r",
+							"pm.test(\"Check Status Code\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,404,400]);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"//TC3\r",
+							"pm.test(\"Correct body Datatypes\", function() {\r",
+							"var data = pm.response.json();\r",
+							"pm.expect(data.code).to.be.a(\"number\");\r",
+							"pm.expect(data.type).to.be.a(\"string\");\r",
+							"pm.expect(data.message).to.be.a(\"string\");})\r",
+							"\r",
+							"\r",
+							"//TC4\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"//TC5\r",
+							"pm.test(\"Correct Headers\" , function () {\r",
+							"   pm.response.to.have.header(\"access-control-allow-headers\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-methods\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"   pm.response.to.have.header(\"content-type\");\r",
+							"   pm.response.to.have.header(\"date\");\r",
+							"   pm.response.to.have.header(\"server\");\r",
+							"   pm.response.to.have.header(\"status\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/test",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bb9e9ac8-26e8-401d-93ff-b0bd70d5ccd7",
+						"exec": [
+							"// TC 1\r",
+							"pm.test(\"Check Status Code\", function () {\r",
+							"\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,404,400]);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"//TC3\r",
+							"pm.test(\"Correct body Datatypes\", function() {\r",
+							"var data = pm.response.json();\r",
+							"pm.expect(data.code).to.be.a(\"number\");\r",
+							"pm.expect(data.type).to.be.a(\"string\");\r",
+							"pm.expect(data.message).to.be.a(\"string\");})\r",
+							"\r",
+							"\r",
+							"//TC4\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"//TC5\r",
+							"pm.test(\"Correct Headers\" , function () {\r",
+							"   pm.response.to.have.header(\"access-control-allow-headers\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-methods\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"   pm.response.to.have.header(\"content-type\");\r",
+							"   pm.response.to.have.header(\"date\");\r",
+							"   pm.response.to.have.header(\"server\");\r",
+							"   pm.response.to.have.header(\"status\");\r",
+							"   pm.response.to.have.header(\"x-expires-after\");\r",
+							"   pm.response.to.have.header(\"x-rate-limit\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/login?username=usernametest&password=password",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "usernametest"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserLogout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "26bfc9c9-fa1f-4d4a-927d-3c0eaa9121b3",
+						"exec": [
+							"// TC 1\r",
+							"pm.test(\"Check Status Code\", function () {\r",
+							"\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"//TC3\r",
+							"pm.test(\"Correct body Datatypes\", function() {\r",
+							"var data = pm.response.json();\r",
+							"pm.expect(data.code).to.be.a(\"number\");\r",
+							"pm.expect(data.type).to.be.a(\"string\");\r",
+							"pm.expect(data.message).to.be.a(\"string\");})\r",
+							"\r",
+							"\r",
+							"//TC4\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"//TC5\r",
+							"pm.test(\"Correct Headers\" , function () {\r",
+							"   pm.response.to.have.header(\"access-control-allow-headers\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-methods\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"   pm.response.to.have.header(\"content-type\");\r",
+							"   pm.response.to.have.header(\"date\");\r",
+							"   pm.response.to.have.header(\"server\");\r",
+							"   pm.response.to.have.header(\"status\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user/logout",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "057d73e7-64ea-41b9-b5b7-a529d2e7327b",
+						"exec": [
+							"// TC 1\r",
+							"pm.test(\"Check Status Code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//TC2\r",
+							"pm.test(\"Correct body format\", function() {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.code).to.eql(200);\r",
+							"    pm.expect(jsonData.type).to.eql(\"unknown\");\r",
+							"})\r",
+							"\r",
+							"//TC3\r",
+							"pm.test(\"Correct body Datatypes\", function() {\r",
+							"var data = pm.response.json();\r",
+							"pm.expect(data.code).to.be.a(\"number\");\r",
+							"pm.expect(data.type).to.be.a(\"string\");\r",
+							"pm.expect(data.message).to.be.a(\"string\");})\r",
+							"\r",
+							"\r",
+							"//TC4\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"//TC5\r",
+							"pm.test(\"Correct Headers\" , function () {\r",
+							"   pm.response.to.have.header(\"access-control-allow-headers\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-methods\");\r",
+							"   pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"   pm.response.to.have.header(\"content-type\");\r",
+							"   pm.response.to.have.header(\"date\");\r",
+							"   pm.response.to.have.header(\"server\");\r",
+							"   pm.response.to.have.header(\"status\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": " application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n\"id\": {{id}},    \r\n\"username\": {{username}},   \r\n\"firstName\": {{firstname}},  \r\n\"lastName\": {{lastname}}, \r\n\"email\": {{email}},    \r\n\"password\": {{password}},  \r\n\"phone\": {{phone}},   \r\n\"userStatus\": {{userstatus}}  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
